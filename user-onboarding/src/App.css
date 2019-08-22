@@ -1,4 +1,31 @@
 .App {
   text-align: center;
+}
+.UserForm {
+  margin: 0 auto;
+  background: lightblue;
+  padding: 10px 0;
+  width: 400px;
+}
+form {
+  padding: 20px;
+display: flex;
+  flex-direction: column;
+}
+
+.inputArea {
   
+  margin: 10px auto 0 auto;
+  width: 200px;
+}
+button {
+  margin: 20px auto;
+  width: 100px;
+}
+.error{
+  margin: 0 auto;
+  width: 200px;
+  text-align: left;
+  font-size: 0.75rem;
+  color: red
 }
