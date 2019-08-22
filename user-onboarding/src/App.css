@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+.big-container{
+  width: 100%;
+}
 .UserForm {
   margin: 0 auto;
   background: lightblue;
@@ -28,4 +31,20 @@ button {
   text-align: left;
   font-size: 0.75rem;
   color: red
+}
+.checkbox-container{
+  margin: 20px 0 0 0;
+}
+.Userlist{
+  margin:20px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.UserInfo{
+  width:40%;
+  margin: 10px 5px;
+  padding: 10px 10px;
+  border: 2px solid orange;
+  text-align: left;
 }
