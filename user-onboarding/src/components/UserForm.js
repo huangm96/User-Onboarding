@@ -6,12 +6,42 @@ import UserList from './UserList'
 
 const UserForm = ({ errors, touched, values, status }) => {
   const [users, setUsers] = useState([]);
+  console.log(users);
   console.log(values)
+
+  const checkEmail = (newInput)=>{
+    let dupEmail = false;
+    users.forEach((e) => {
+      if (e.email === newInput.email) {
+        dupEmail = true;
+      }
+    })
+    return dupEmail;
+  }
+  const checkName = newInput => {
+    let dupName = false;
+    users.forEach(e => {
+      if (e.name === newInput.name) {
+        dupName = true;
+      }
+    });
+    return dupName;
+  };
   useEffect(() => {
-    if (status) {
-      console.log(status)
+    
+    if (
+      status &&
+      checkEmail(status) === false &&
+      checkName(status) === false
+    ) {
+      console.log(status);
       setUsers([...users, status]);
-    }
+      alert("You are submitted!");
+    } else if (checkName(status)) {
+      alert("That name is already taken. Please change your name");
+    } else if (checkEmail(status)) {
+      alert("That email is already taken. Please change your email");
+    } 
   }, [status]);
 
   return (
@@ -81,7 +111,7 @@ const FormikUserForm = withFormik({
   handleSubmit(values, { setStatus }) {
     if (values.termOfService===false) {
       alert("please check the box")
-    }else{
+    } else {
     axios
       .post("https://reqres.in/api/users/", values)
       .then(res => {
